@@ -13,12 +13,22 @@
 # Sample Usage:
 #
 class apache (
-  $default_mods = true,
-  $service_enable = true,
-  $serveradmin  = 'root@localhost',
-  $sendfile     = false
+  $default_mods    = true,
+  $service_enable  = true,
+  $serveradmin     = 'root@localhost',
+  $sendfile        = false,
+  $manage_firewall = false,
 ) {
+
   include apache::params
+
+  if $manage_firewall == true {
+    firewall { '80 open port 80 for HTTP':
+      action => 'accept',
+      dport  => 80,
+      proto  => 'tcp',
+    }
+  }
 
   package { 'httpd':
     ensure => installed,
@@ -39,7 +49,7 @@ class apache (
     ensure  => directory,
     path    => $apache::params::vdir,
     recurse => true,
-    purge   => true,
+    #purge   => true,
     notify  => Service['httpd'],
     require => Package['httpd'],
   }
