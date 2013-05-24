@@ -10,4 +10,4 @@ description 'Module for Apache configuration'
 project_page 'https://github.com/puppetlabs/puppetlabs-apache'
 
 dependency 'puppetlabs/firewall', '>= 0.2.1'
-dependency 'puppetlabs/stdlib', '>= 2.2.1'
+#dependency 'puppetlabs/stdlib', '>= 2.2.1'
