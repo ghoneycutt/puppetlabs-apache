@@ -1,5 +1,7 @@
 name 'puppetlabs-apache'
-version '0.5.0-rc1'
+# librarian-puppet does not like -rc1
+#version '0.5.0-rc1'
+version '0.5.0'
 source 'git://github.com/puppetlabs/puppetlabs-apache.git'
 author 'puppetlabs'
 license 'Apache 2.0'
