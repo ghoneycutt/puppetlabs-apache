@@ -1,0 +1,114 @@
+# This file is being maintained by Puppet.
+# DO NOT EDIT
+
+<% if @jkworkersfile -%>
+JkWorkersFile <%= @jkworkersfile %>
+<% end -%>
+<% if @jkworkerproperty -%>
+JkWorkerProperty <%= @jkworkerproperty %>
+<% end -%>
+<% if @jkshmfile -%>
+JkShmFile <%= @jkshmfile %>
+<% end -%>
+<% if @jkshmsize -%>
+JkShmSize <%= @jkshmsize %>
+<% end -%>
+<% if @jkmountfile -%>
+JkMountFile <%= @jkmountfile %>
+<% end -%>
+<% if @jkmountfilereload -%>
+JkMountFileReload <%= @jkmountfilereload %>
+<% end -%>
+<% if @jkmount -%>
+JkMount <%= @jkmount %>
+<% end -%>
+<% if @jkunmount -%>
+JkUnMount <%= @jkunmount %>
+<% end -%>
+<% if @jkautoalias -%>
+JkAutoAlias <%= @jkautoalias %>
+<% end -%>
+<% if @jkmountcopy -%>
+JkMountCopy <%= @jkmountcopy %>
+<% end -%>
+<% if @jkworkerindicator -%>
+JkWorkerIndicator <%= @jkworkerindicator %>
+<% end -%>
+<% if @jkwatchdoginterval -%>
+JkWatchdogInterval <%= @jkwatchdoginterval %>
+<% end -%>
+<% if @jklogfile -%>
+JkLogFile <%= @jklogfile %>
+<% end -%>
+<% if @jkloglevel -%>
+JkLogLevel <%= @jkloglevel %>
+<% end -%>
+<% if @jklogstampformat -%>
+JkLogStampFormat <%= @jklogstampformat %>
+<% end -%>
+<% if @jkrequestlogformat -%>
+JkRequestLogFormat <%= @jkrequestlogformat %>
+<% end -%>
+<% if @jkextractssl -%>
+JkExtractSSL <%= @jkextractssl %>
+<% end -%>
+<% if @jkhttpsindicator -%>
+JkHTTPSIndicator <%= @jkhttpsindicator %>
+<% end -%>
+<% if @jkcertsindicator -%>
+JkCERTSIndicator <%= @jkcertsindicator %>
+<% end -%>
+<% if @jkcipherindicator -%>
+JkCIPHERIndicator <%= @jkcipherindicator %>
+<% end -%>
+<% if @jkcertchainprefix -%>
+JkCERTCHAINPrefix <%= @jkcertchainprefix %>
+<% end -%>
+<% if @jksessionindicator -%>
+JkSESSIONIndicator <%= @jksessionindicator %>
+<% end -%>
+<% if @jkkeysizeindicator -%>
+JkKEYSIZEIndicator <%= @jkkeysizeindicator %>
+<% end -%>
+<% if @jklocalnameindicator -%>
+JkLocalNameIndicator <%= @jklocalnameindicator %>
+<% end -%>
+<% if @jklocalportindicator -%>
+JkLocalPortIndicator <%= @jklocalportindicator %>
+<% end -%>
+<% if @jkremotehostindicator -%>
+JkRemoteHostIndicator <%= @jkremotehostindicator %>
+<% end -%>
+<% if @jkremoteaddrindicator -%>
+JkRemoteAddrIndicator <%= @jkremoteaddrindicator %>
+<% end -%>
+<% if @jkremoteportindicator -%>
+JkRemotePortIndicator <%= @jkremoteportindicator %>
+<% end -%>
+<% if @jkremoteuserindicator -%>
+JkRemoteUserIndicator <%= @jkremoteuserindicator %>
+<% end -%>
+<% if @jkauthtypeindicator -%>
+JkAuthTypeIndicator <%= @jkauthtypeindicator %>
+<% end -%>
+<% if @jkoptions -%>
+JkOptions <%= @jkoptions %>
+<% end -%>
+<% if @jkenvvar -%>
+JkEnvVar <%= @jkenvvar %>
+<% end -%>
+<% if @jkstripsession -%>
+JkStripSession <%= @jkstripsession %>
+<% end -%>
+<% if @enable_status == true -%>
+<Location /modjk_status/>
+  JkMount status
+  Order deny,allow
+  Deny from all
+<% if @status_allow_from.class == String -%>
+status_allow_from <%= @status_allow_from %>
+<% else -%>
+status_allow_from<% @status_allow_from.each do |location| %> <%= location %><% end %>
+<% end -%>
+</Location>
+<% end -%>
